@@ -436,7 +436,7 @@
   <notepads>
   </notepads>
   <connection>
-    <name>db</name>
+    <name>proyectoBI</name>
     <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
@@ -494,7 +494,7 @@
     </hop>
     <hop>
       <from>Merge join</from>
-      <to>Sort rows</to>
+      <to>ordenar</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -503,7 +503,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows</from>
+      <from>ordenar</from>
       <to>Merge join 2</to>
       <enabled>Y</enabled>
     </hop>
@@ -514,11 +514,11 @@
     </hop>
     <hop>
       <from>Merge join 2</from>
-      <to>Sort rows 2</to>
+      <to>ordenar 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows 2</from>
+      <from>ordenar 2</from>
       <to>Merge join 3</to>
       <enabled>Y</enabled>
     </hop>
@@ -529,17 +529,17 @@
     </hop>
     <hop>
       <from>Merge join 3</from>
-      <to>Sort rows 3</to>
+      <to>ordenar 3</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows 3</from>
+      <from>ordenar 3</from>
       <to>Merge join 4</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Merge join 4</from>
-      <to>Sort rows 4</to>
+      <to>ordenar 4</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -548,78 +548,78 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows 4</from>
+      <from>ordenar 4</from>
       <to>Merge join 5</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Merge join 5</from>
-      <to>Sort rows 5</to>
+      <to>ordenar 5</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>dim_sucursal 2</from>
+      <from>dim_producto</from>
       <to>Merge join 5</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows 5</from>
+      <from>ordenar 5</from>
       <to>Merge join 6</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>dim_sucursal 2 2</from>
+      <from>dim_siniestro</from>
       <to>Merge join 6</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Merge join 6</from>
-      <to>Sort rows 6</to>
+      <to>ordenar 6</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>dim_sucursal 2 2 2</from>
+      <from>dim_tiempo</from>
       <to>Merge join 7</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows 6</from>
+      <from>ordenar 6</from>
       <to>Merge join 7</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Merge join 7</from>
-      <to>Sort rows 6 2</to>
+      <to>ordenar 7</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>dim_sucursal 2 2 2 2</from>
+      <from>dim_tiempo 2</from>
       <to>Merge join 7 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows 6 2</from>
+      <from>ordenar 7</from>
       <to>Merge join 7 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Merge join 7 2</from>
-      <to>Select values</to>
+      <to>filtrar</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values</from>
-      <to>Add constants</to>
+      <from>filtrar</from>
+      <to>agregar cantidad</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Add constants</from>
-      <to>Table output</to>
+      <from>agregar cantidad</from>
+      <to>fact_registro_siniestro</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Add constants</name>
+    <name>agregar cantidad</name>
     <type>Constant</type>
     <description/>
     <distribute>Y</distribute>
@@ -652,7 +652,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2096</xloc>
+      <xloc>2112</xloc>
       <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
@@ -703,7 +703,7 @@
       <schema_name/>
     </partitioning>
     <join_type>INNER</join_type>
-    <step1>Sort rows</step1>
+    <step1>ordenar</step1>
     <step2>dim_contrato</step2>
     <keys_1>
       <key>nro_contrato</key>
@@ -737,7 +737,7 @@
       <schema_name/>
     </partitioning>
     <join_type>INNER</join_type>
-    <step1>Sort rows 2</step1>
+    <step1>ordenar 2</step1>
     <step2>cliente</step2>
     <keys_1>
       <key>cod_cliente</key>
@@ -771,7 +771,7 @@
       <schema_name/>
     </partitioning>
     <join_type>INNER</join_type>
-    <step1>Sort rows 3</step1>
+    <step1>ordenar 3</step1>
     <step2>dim_sucursal</step2>
     <keys_1>
       <key>cod_sucursal</key>
@@ -805,8 +805,8 @@
       <schema_name/>
     </partitioning>
     <join_type>INNER</join_type>
-    <step1>Sort rows 4</step1>
-    <step2>dim_sucursal 2</step2>
+    <step1>ordenar 4</step1>
+    <step2>dim_producto</step2>
     <keys_1>
       <key>cod_producto</key>
     </keys_1>
@@ -839,8 +839,8 @@
       <schema_name/>
     </partitioning>
     <join_type>INNER</join_type>
-    <step1>Sort rows 5</step1>
-    <step2>dim_sucursal 2 2</step2>
+    <step1>ordenar 5</step1>
+    <step2>dim_siniestro</step2>
     <keys_1>
       <key>nro_siniestro</key>
     </keys_1>
@@ -873,8 +873,8 @@
       <schema_name/>
     </partitioning>
     <join_type>INNER</join_type>
-    <step1>Sort rows 6</step1>
-    <step2>dim_sucursal 2 2 2</step2>
+    <step1>ordenar 6</step1>
+    <step2>dim_tiempo</step2>
     <keys_1>
       <key>fecha_respuesta</key>
     </keys_1>
@@ -907,8 +907,8 @@
       <schema_name/>
     </partitioning>
     <join_type>INNER</join_type>
-    <step1>Sort rows 6 2</step1>
-    <step2>dim_sucursal 2 2 2 2</step2>
+    <step1>ordenar 7</step1>
+    <step2>dim_tiempo 2</step2>
     <keys_1>
       <key>fecha_siniestro</key>
     </keys_1>
@@ -930,7 +930,7 @@
     </GUI>
   </step>
   <step>
-    <name>Select values</name>
+    <name>filtrar</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -951,24 +951,31 @@
       </field>
       <field>
         <name>sk_dim_cliente</name>
+        <rename/>
       </field>
       <field>
         <name>sk_dim_contrato</name>
+        <rename/>
       </field>
       <field>
         <name>sk_dim_sucursal</name>
+        <rename/>
       </field>
       <field>
         <name>sk_dim_producto</name>
+        <rename/>
       </field>
       <field>
         <name>sk_dim_siniestro</name>
+        <rename/>
       </field>
       <field>
         <name>monto_solicitado</name>
+        <rename/>
       </field>
       <field>
         <name>monto_reconocido</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -987,7 +994,7 @@
     </GUI>
   </step>
   <step>
-    <name>Sort rows</name>
+    <name>ordenar</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -1029,7 +1036,7 @@
     </GUI>
   </step>
   <step>
-    <name>Sort rows 2</name>
+    <name>ordenar 2</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -1071,7 +1078,7 @@
     </GUI>
   </step>
   <step>
-    <name>Sort rows 3</name>
+    <name>ordenar 3</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -1113,7 +1120,7 @@
     </GUI>
   </step>
   <step>
-    <name>Sort rows 4</name>
+    <name>ordenar 4</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -1155,7 +1162,7 @@
     </GUI>
   </step>
   <step>
-    <name>Sort rows 5</name>
+    <name>ordenar 5</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -1197,7 +1204,7 @@
     </GUI>
   </step>
   <step>
-    <name>Sort rows 6</name>
+    <name>ordenar 6</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -1239,7 +1246,7 @@
     </GUI>
   </step>
   <step>
-    <name>Sort rows 6 2</name>
+    <name>ordenar 7</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -1281,7 +1288,7 @@
     </GUI>
   </step>
   <step>
-    <name>Table output</name>
+    <name>fact_registro_siniestro</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1291,8 +1298,8 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection/>
-    <schema>modelo_dimensional</schema>
+    <connection>proyectoBI</connection>
+    <schema>seguro_dw_g28126743</schema>
     <table>fact_registro_siniestro</table>
     <commit>1000</commit>
     <truncate>N</truncate>
@@ -1319,7 +1326,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2176</xloc>
+      <xloc>2224</xloc>
       <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1335,8 +1342,8 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>db</connection>
-    <sql>SELECT cod_cliente, cod_sucursal FROM modelo_relacional.cliente
+    <connection>proyectoBI</connection>
+    <sql>SELECT cod_cliente, cod_sucursal FROM SEGURO_G28126743.cliente
 ORDER BY cod_cliente</sql>
     <limit>0</limit>
     <lookup/>
@@ -1417,8 +1424,8 @@ ORDER BY cod_cliente</sql>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>db</connection>
-    <sql>SELECT sk_dim_cliente, cod_cliente FROM modelo_dimensional.dim_cliente
+    <connection>proyectoBI</connection>
+    <sql>SELECT sk_dim_cliente, cod_cliente FROM SEGURO_DW_G28126743.dim_cliente
 ORDER BY cod_cliente</sql>
     <limit>0</limit>
     <lookup/>
@@ -1499,8 +1506,8 @@ ORDER BY cod_cliente</sql>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>db</connection>
-    <sql>SELECT sk_dim_contrato, nro_contrato FROM modelo_dimensional.dim_contrato
+    <connection>proyectoBI</connection>
+    <sql>SELECT sk_dim_contrato, nro_contrato FROM SEGURO_DW_G28126743.dim_contrato
 ORDER BY nro_contrato</sql>
     <limit>0</limit>
     <lookup/>
@@ -1581,8 +1588,8 @@ ORDER BY nro_contrato</sql>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>db</connection>
-    <sql>SELECT cod_sucursal, sk_dim_sucursal FROM modelo_dimensional.dim_sucursal
+    <connection>proyectoBI</connection>
+    <sql>SELECT cod_sucursal, sk_dim_sucursal FROM SEGURO_DW_G28126743.dim_sucursal
 ORDER BY cod_sucursal
 </sql>
     <limit>0</limit>
@@ -1654,7 +1661,7 @@ ORDER BY cod_sucursal
     </GUI>
   </step>
   <step>
-    <name>dim_sucursal 2</name>
+    <name>dim_producto</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1664,8 +1671,8 @@ ORDER BY cod_sucursal
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>db</connection>
-    <sql>SELECT cod_producto, sk_dim_producto FROM modelo_dimensional.dim_producto
+    <connection>proyectoBI</connection>
+    <sql>SELECT cod_producto, sk_dim_producto FROM SEGURO_DW_G28126743.dim_producto
 ORDER BY cod_producto
 </sql>
     <limit>0</limit>
@@ -1737,7 +1744,7 @@ ORDER BY cod_producto
     </GUI>
   </step>
   <step>
-    <name>dim_sucursal 2 2</name>
+    <name>dim_siniestro</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1747,8 +1754,8 @@ ORDER BY cod_producto
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>db</connection>
-    <sql>SELECT nro_siniestro, sk_dim_siniestro FROM modelo_dimensional.dim_siniestro
+    <connection>proyectoBI</connection>
+    <sql>SELECT nro_siniestro, sk_dim_siniestro FROM SEGURO_DW_G28126743.dim_siniestro
 ORDER BY nro_siniestro
 </sql>
     <limit>0</limit>
@@ -1820,7 +1827,7 @@ ORDER BY nro_siniestro
     </GUI>
   </step>
   <step>
-    <name>dim_sucursal 2 2 2</name>
+    <name>dim_tiempo</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1830,8 +1837,8 @@ ORDER BY nro_siniestro
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>db</connection>
-    <sql>SELECT fecha_completa, sk_dim_tiempo FROM modelo_dimensional.dim_tiempo
+    <connection>proyectoBI</connection>
+    <sql>SELECT fecha_completa, sk_dim_tiempo FROM SEGURO_DW_G28126743.dim_tiempo
 ORDER BY fecha_completa</sql>
     <limit>0</limit>
     <lookup/>
@@ -1902,7 +1909,7 @@ ORDER BY fecha_completa</sql>
     </GUI>
   </step>
   <step>
-    <name>dim_sucursal 2 2 2 2</name>
+    <name>dim_tiempo 2</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1912,8 +1919,8 @@ ORDER BY fecha_completa</sql>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>db</connection>
-    <sql>SELECT fecha_completa, sk_dim_tiempo FROM modelo_dimensional.dim_tiempo
+    <connection>proyectoBI</connection>
+    <sql>SELECT fecha_completa, sk_dim_tiempo FROM SEGURO_DW_G28126743.dim_tiempo
 ORDER BY fecha_completa
 </sql>
     <limit>0</limit>
@@ -1929,7 +1936,7 @@ ORDER BY fecha_completa
         <name>fecha_completa</name>
         <length>-1</length>
         <precision>-1</precision>
-        <origin>dim_sucursal 2 2 2 2</origin>
+        <origin>dim_tiempo 2</origin>
         <comments>fecha_completa</comments>
         <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
@@ -1952,7 +1959,7 @@ ORDER BY fecha_completa
         <name>sk_dim_tiempo</name>
         <length>9</length>
         <precision>0</precision>
-        <origin>dim_sucursal 2 2 2 2</origin>
+        <origin>dim_tiempo 2</origin>
         <comments>sk_dim_tiempo</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
@@ -1995,8 +2002,8 @@ ORDER BY fecha_completa
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>db</connection>
-    <sql>SELECT * FROM modelo_relacional.REGISTRO_SINIESTRO
+    <connection>proyectoBI</connection>
+    <sql>SELECT * FROM SEGURO_G28126743.REGISTRO_SINIESTRO
 ORDER BY cod_cliente</sql>
     <limit>0</limit>
     <lookup/>

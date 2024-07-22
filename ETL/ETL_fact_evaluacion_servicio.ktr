@@ -436,7 +436,7 @@
   <notepads>
   </notepads>
   <connection>
-    <name>db</name>
+    <name>proyectoBI</name>
     <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
@@ -488,57 +488,57 @@
   </connection>
   <order>
     <hop>
-      <from>Add constants</from>
+      <from>agregar cantidad</from>
       <to>fact_evaluacion_servicio</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Merge join</from>
-      <to>Select values</to>
+      <to>filtrar</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Merge join 2</from>
-      <to>Sort rows 2</to>
+      <to>ordenar 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Merge join 3</from>
-      <to>Select values 2</to>
+      <to>filtrar 3</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Merge join 4</from>
-      <to>Select values 2 2</to>
+      <to>filtar 4</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values</from>
-      <to>Sort rows</to>
+      <from>filtrar</from>
+      <to>ordenar</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values 2</from>
-      <to>Sort rows 3</to>
+      <from>filtrar 3</from>
+      <to>ordenar 3</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values 2 2</from>
-      <to>Add constants</to>
+      <from>filtar 4</from>
+      <to>agregar cantidad</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows</from>
+      <from>ordenar</from>
       <to>Merge join 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows 2</from>
+      <from>ordenar 2</from>
       <to>Merge join 3</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows 3</from>
+      <from>ordenar 3</from>
       <to>Merge join 4</to>
       <enabled>Y</enabled>
     </hop>
@@ -553,23 +553,23 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>recomienda 2</from>
+      <from>dim_cliente</from>
       <to>Merge join 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>recomienda 2 2</from>
+      <from>dim_evaluacion_servicio</from>
       <to>Merge join 3</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>recomienda 2 2 2</from>
+      <from>dim_producto</from>
       <to>Merge join 4</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Add constants</name>
+    <name>agregar cantidad</name>
     <type>Constant</type>
     <description/>
     <distribute>Y</distribute>
@@ -653,8 +653,8 @@
       <schema_name/>
     </partitioning>
     <join_type>INNER</join_type>
-    <step1>recomienda 2</step1>
-    <step2>Sort rows</step2>
+    <step1>dim_cliente</step1>
+    <step2>ordenar</step2>
     <keys_1>
       <key>cod_cliente</key>
     </keys_1>
@@ -687,8 +687,8 @@
       <schema_name/>
     </partitioning>
     <join_type>INNER</join_type>
-    <step1>Sort rows 2</step1>
-    <step2>recomienda 2 2</step2>
+    <step1>ordenar 2</step1>
+    <step2>dim_evaluacion_servicio</step2>
     <keys_1>
       <key>cod_evaluacion_servicio</key>
     </keys_1>
@@ -721,8 +721,8 @@
       <schema_name/>
     </partitioning>
     <join_type>INNER</join_type>
-    <step1>Sort rows 3</step1>
-    <step2>recomienda 2 2 2</step2>
+    <step1>ordenar 3</step1>
+    <step2>dim_producto</step2>
     <keys_1>
       <key>cod_producto</key>
     </keys_1>
@@ -744,7 +744,7 @@
     </GUI>
   </step>
   <step>
-    <name>Select values</name>
+    <name>filtrar</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -792,7 +792,7 @@
     </GUI>
   </step>
   <step>
-    <name>Select values 2</name>
+    <name>filtrar 3</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -805,18 +805,23 @@
     <fields>
       <field>
         <name>sk_dim_cliente</name>
+        <rename/>
       </field>
       <field>
         <name>cod_producto</name>
+        <rename/>
       </field>
       <field>
         <name>recomienda_amigo</name>
+        <rename/>
       </field>
       <field>
         <name>sk_dim_fecha_recomendacion</name>
+        <rename/>
       </field>
       <field>
         <name>sk_dim_evaluacion</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -835,7 +840,7 @@
     </GUI>
   </step>
   <step>
-    <name>Select values 2 2</name>
+    <name>filtar 4</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -883,7 +888,7 @@
     </GUI>
   </step>
   <step>
-    <name>Sort rows</name>
+    <name>ordenar</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -925,7 +930,7 @@
     </GUI>
   </step>
   <step>
-    <name>Sort rows 2</name>
+    <name>ordenar 2</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -967,7 +972,7 @@
     </GUI>
   </step>
   <step>
-    <name>Sort rows 3</name>
+    <name>ordenar 3</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -1019,8 +1024,8 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>db</connection>
-    <sql>SELECT * FROM modelo_dimensional.dim_tiempo
+    <connection>proyectoBI</connection>
+    <sql>SELECT * FROM SEGURO_DW_G28126743.dim_tiempo
 ORDER BY fecha_completa;</sql>
     <limit>0</limit>
     <lookup/>
@@ -1377,8 +1382,8 @@ ORDER BY fecha_completa;</sql>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection/>
-    <schema>modelo_dimensional</schema>
+    <connection>proyectoBI</connection>
+    <schema>seguro_dw_g28126743</schema>
     <table>fact_evaluacion_servicio</table>
     <commit>1000</commit>
     <truncate>N</truncate>
@@ -1421,8 +1426,8 @@ ORDER BY fecha_completa;</sql>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>db</connection>
-    <sql>SELECT * FROM modelo_relacional.RECOMIENDA
+    <connection>proyectoBI</connection>
+    <sql>SELECT * FROM SEGURO_G28126743.RECOMIENDA
 ORDER BY fecha_recomendacion</sql>
     <limit>0</limit>
     <lookup/>
@@ -1562,7 +1567,7 @@ ORDER BY fecha_recomendacion</sql>
     </GUI>
   </step>
   <step>
-    <name>recomienda 2</name>
+    <name>dim_cliente</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1572,8 +1577,8 @@ ORDER BY fecha_recomendacion</sql>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>db</connection>
-    <sql>SELECT sk_dim_cliente, cod_cliente FROM modelo_dimensional.dim_cliente
+    <connection>proyectoBI</connection>
+    <sql>SELECT sk_dim_cliente, cod_cliente FROM SEGURO_DW_G28126743.dim_cliente
 ORDER BY cod_cliente</sql>
     <limit>0</limit>
     <lookup/>
@@ -1588,7 +1593,7 @@ ORDER BY cod_cliente</sql>
         <name>sk_dim_cliente</name>
         <length>9</length>
         <precision>0</precision>
-        <origin>recomienda 2</origin>
+        <origin>dim_cliente</origin>
         <comments>sk_dim_cliente</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
@@ -1611,7 +1616,7 @@ ORDER BY cod_cliente</sql>
         <name>cod_cliente</name>
         <length>9</length>
         <precision>0</precision>
-        <origin>recomienda 2</origin>
+        <origin>dim_cliente</origin>
         <comments>cod_cliente</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
@@ -1644,7 +1649,7 @@ ORDER BY cod_cliente</sql>
     </GUI>
   </step>
   <step>
-    <name>recomienda 2 2</name>
+    <name>dim_evaluacion_servicio</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1654,8 +1659,8 @@ ORDER BY cod_cliente</sql>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>db</connection>
-    <sql>SELECT sk_dim_evaluacion, cod_evaluacion_servicio FROM modelo_dimensional.dim_evaluacion_servicio
+    <connection>proyectoBI</connection>
+    <sql>SELECT sk_dim_evaluacion, cod_evaluacion_servicio FROM SEGURO_DW_G28126743.dim_evaluacion_servicio
 ORDER BY cod_evaluacion_servicio</sql>
     <limit>0</limit>
     <lookup/>
@@ -1670,7 +1675,7 @@ ORDER BY cod_evaluacion_servicio</sql>
         <name>sk_dim_evaluacion</name>
         <length>9</length>
         <precision>0</precision>
-        <origin>recomienda 2 2</origin>
+        <origin>dim_evaluacion_servicio</origin>
         <comments>sk_dim_evaluacion</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
@@ -1693,7 +1698,7 @@ ORDER BY cod_evaluacion_servicio</sql>
         <name>cod_evaluacion_servicio</name>
         <length>9</length>
         <precision>0</precision>
-        <origin>recomienda 2 2</origin>
+        <origin>dim_evaluacion_servicio</origin>
         <comments>cod_evaluacion_servicio</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
@@ -1726,7 +1731,7 @@ ORDER BY cod_evaluacion_servicio</sql>
     </GUI>
   </step>
   <step>
-    <name>recomienda 2 2 2</name>
+    <name>dim_producto</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1736,8 +1741,8 @@ ORDER BY cod_evaluacion_servicio</sql>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>db</connection>
-    <sql>SELECT sk_dim_producto, cod_producto FROM modelo_dimensional.dim_producto
+    <connection>proyectoBI</connection>
+    <sql>SELECT sk_dim_producto, cod_producto FROM SEGURO_DW_G28126743.dim_producto
 ORDER BY cod_producto</sql>
     <limit>0</limit>
     <lookup/>

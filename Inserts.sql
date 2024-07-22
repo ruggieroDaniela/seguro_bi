@@ -130,6 +130,8 @@ INSERT INTO SEGURO_G28126743.REGISTRO_CONTRATO (nro_contrato, cod_producto, cod_
 (3, 3, 3, '2024-03-01', '2024-10-31', 3000.00, 3), 
 (4, 4, 4, '2024-04-01', '2024-09-30', 4000.00, 1), 
 (5, 5, 5, '2024-05-01', '2024-08-31', 5000.00, 2);
+(5, 1, 1, '2024-01-01', '2024-12-31', 1000.00, 1), 
+(5, 2, 1, '2024-01-01', '2024-12-31', 1000.00, 1), 
 
 -- Insertar datos en la tabla SINIESTRO
 INSERT INTO SEGURO_G28126743.SINIESTRO (descripcion_siniestro) VALUES 
